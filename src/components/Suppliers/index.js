@@ -1,10 +1,12 @@
-import React from "react";
-
+//Styles
 import { ContainerSection } from "../../styles/Container";
-import H3 from "../HeaderSection";
-import Supplier from "./Supplier";
 import { CardsSuppliers } from "./Style";
 
+//Components
+import H3 from "../HeaderSection";
+import Supplier from "./Supplier";
+
+//images
 import Russia from "../../images/Russia.png";
 import ArabicEmirates from "../../images/Arabic Emirates.png";
 import Australia from "../../images/Australia.png";

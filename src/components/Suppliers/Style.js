@@ -22,7 +22,7 @@ export  const StyleCountry = styled.div`
   }
 `;
 
-export const CardsSuppliers = styled.div`
+export const CardsSuppliers = styled.section`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   grid-gap: 30px;

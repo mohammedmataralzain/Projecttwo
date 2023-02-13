@@ -7,6 +7,7 @@ const Ul = styled.ul`
   align-items: center;
   color: #8b96a5;
   gap: 7px;
+  padding-top: 20px;
   li {
     display: flex;
     justify-content: center;

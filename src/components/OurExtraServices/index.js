@@ -1,8 +1,12 @@
+//Styles
 import { ContainerSection } from "../../styles/Container";
-import H3 from "../HeaderSection";
-import Service from "./Service";
 import { Cards } from "./Style";
 
+//Component
+import H3 from "../HeaderSection";
+import Service from "./Service";
+
+//images
 import Fast from "../../images/Fast.png";
 import Customize from "../../images/Customize.png";
 import Product from "../../images/Product monitoring.png";

@@ -26,6 +26,8 @@ const Table = styled.table`
 const TabelDetalis = (props) => {
   return (
     <Table>
+      <tbody>
+
       <tr>
         <td className="title">Model</td>
         <td>{props.model}</td>
@@ -46,6 +48,7 @@ const TabelDetalis = (props) => {
         <td className="title">Memory</td>
         <td>{props.memory}</td>
       </tr>
+      </tbody>
     </Table>
   );
 };

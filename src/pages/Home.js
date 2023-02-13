@@ -1,14 +1,14 @@
 import Header from "../components/Header";
 import TopHomePageSection from "../components/TopHomePageSection";
-import Dealsandoffers from "../components/Deals/Dealsandoffers";
-import ConsumerElectronics from "../components/Section2/ConsumerElectronics";
+import Dealsandoffers from "../components/DealsAndOffers/Dealsandoffers";
+import ConsumerElectronics from "../components/HomeAndConsumer/ConsumerElectronics";
 import RecommendedCards from "../components/RecommendedCards";
 import OurExtraServices from "../components/OurExtraServices";
 import SendRequests from "../components/SendRequst";
 import Suppliers from "../components/Suppliers";
 import Subscribe from "../components/Subscribe";
 import Footer from "../components/Footer";
-import HomeAndOutdoor from "../components/Section2/HomeAndOutdoor";
+import HomeAndOutdoor from "../components/HomeAndConsumer/HomeAndOutdoor";
 import { useEffect } from "react";
 
 const Home = () => {

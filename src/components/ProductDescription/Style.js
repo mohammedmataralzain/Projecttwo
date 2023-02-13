@@ -27,8 +27,9 @@ export const Tab = styled.button`
   transition: 0.1s;
 `;
 export const Content = styled.div`
-  p {
     border-top: 2px solid #eff2f4;
+
+  p {
     padding: 10px 20px;
     font-weight: 400;
     font-size: 16px;
@@ -59,13 +60,60 @@ export const Ul = styled.ul`
   }
 `;
 export const Details = styled.div`
- width: 72%;
+  width: 80%;
   background: #ffffff;
-  border: 1px solid #e3e8ee;
+  border: 1px solid #E3E8EE;
   box-shadow: 0px 1px 3px rgba(56, 56, 56, 0.1);
   border-radius: 6px;
 `;
 export const Wraper = styled.div`
+  margin-top: 20px;
   display: flex;
   justify-content: space-between;
+  .myLike {
+    border: 1px solid #E3E8EE;
+    border-radius: 10px;
+    h2 {
+      padding: 10px;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 19px;
+      color: #1c1c1c;
+    }
+    width: 260px;
+    background-color: #ffffff;
+    height: 460px;
+    
+  }
+`;
+
+export const StyleProductLike = styled.div`
+  background-color: #ffffff;
+  padding: 5px;
+  display: flex;
+  div:first-child {
+    width: 70px;
+    height: 70px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+  }
+  img {
+    width: 55px;
+    height: 60px;
+
+  }
+  p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    margin-left: 10px;
+  }
+  p:first-of-type {
+    color: #1c1c1c;
+    width: 151px;
+  }
+  p:last-of-type {
+    color: #8b96a5;
+  }
 `;

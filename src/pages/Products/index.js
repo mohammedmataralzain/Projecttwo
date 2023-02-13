@@ -1,102 +1,27 @@
 import React, { useEffect, useState } from "react";
-import Footer from "../components/Footer";
-import Header from "../components/Header"
-import Subscribe from "../components/Subscribe";
-import Dropdown from "../components/Dropdown";
+import Footer from "../../components/Footer";
+import Header from "../../components/Header";
+import Subscribe from "../../components/Subscribe";
+import Dropdown from "../../components/Dropdown";
 import { AiFillStar } from "react-icons/ai";
 
-import { Container, ContainerSection } from "../styles/Container";
-import Series from "../components/Series";
+import { Container, ContainerSection } from "../../styles/Container";
+import Series from "../../components/Series";
 import { BsList } from "react-icons/bs";
 import { RiLayoutGridFill } from "react-icons/ri";
 import styled from "styled-components";
-import Product from "../components/Product";
+import Product from "../../components/Product";
 
-import iPhone1 from "../images/iPhone - Apple.png";
-import iPhone2 from "../images/iPhone - Apple2.png";
-import Smartphones from "../images/Smartphones.png";
-import mobile from "../images/mobile.png";
-import GoProcameras from "../images/GoProcameras.png";
-import Laptops from "../images/Laptops.png";
-import Smartwatches from "../images/Smartwatches.png";
-import phone from "../images/phone.png";
+import iPhone1 from "../../images/iPhone - Apple.png";
+import iPhone2 from "../../images/iPhone - Apple2.png";
+import Smartphones from "../../images/Smartphones.png";
+import mobile from "../../images/mobile.png";
+import GoProcameras from "../../images/GoProcameras.png";
+import Laptops from "../../images/Laptops.png";
+import Smartwatches from "../../images/Smartwatches.png";
+import phone from "../../images/phone.png";
+import { GridContainer, Icon, ListContainer, StyleProducts } from "./Style";
 
-const StyleProducts = styled.div`
-  margin-top: 40px;
-  display: flex;
-  flex-wrap: wrap;
-  .headerProducts {
-    padding: 20px;
-    border-radius: 6px;
-    width: 1020px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-left: 50px;
-    background: #FFFFFF;
-    @media (max-width: 991px) {
-      width: 320px;
-    }
-    h4 {
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 19px;
-    }
-    .list,
-    .grid {
-      width: 20px;
-      height: 20px;
-      color: #8b96a5;
-      margin-left: 10px;
-    }
-    .rightProducts {
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 19px;
-      color: #1c1c1c;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      select {
-        border: none;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 19px;
-      }
-      input {
-        text-align: center;
-        width: 15px;
-        height: 15px;
-        margin-right: 5px;
-      }
-    }
-  }
-`;
-const ListContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  margin-left: 50px;
-`;
-
-const ListItem = styled.div`
-  width: 100%;
-  box-sizing: border-box;
-  padding: 10px;
-`;
-
-const GridContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(295px, 295px));
-  column-gap: 65px;
-  margin-left: 50px;
-`;
-
-const GridItem = styled.div`
-  padding: 20px;
-`;
 
 const Products = () => {
   useEffect(() => {
@@ -253,11 +178,18 @@ const Products = () => {
                     </select>
                   </div>
                   <div>
-                    <RiLayoutGridFill
-                      className="list"
-                      onClick={() => setView("grid")}
-                    />
-                    <BsList className="grid" onClick={() => setView("list")} />
+                    <Icon view={view} primary={view === "grid"}>
+                      <RiLayoutGridFill
+                        onClick={() => setView("grid")}
+                        className="grid"
+                      />
+                    </Icon>
+                    <Icon view={view} primary={view === "list"}>
+                      <BsList
+                        onClick={() => setView("list")}
+                        className="list"
+                      />
+                    </Icon>
                   </div>
                 </div>
               </div>

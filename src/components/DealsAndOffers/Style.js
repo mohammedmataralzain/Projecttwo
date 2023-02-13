@@ -1,14 +1,16 @@
 import styled from "styled-components";
 
-export const Offers = styled.div`
-  background-color: white;
+export const Content = styled.section`
+  margin-top: 30px;
   display: flex;
-  @media (max-width: 1150px) {
-    overflow-x: scroll;
+  justify-content: space-around;
+  @media (max-width: 551px) {
+    flex-direction: column;
   }
 `;
 
 export const Title = styled.div`
+  padding: 10px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -44,16 +46,41 @@ export const Timers = styled.div`
     margin-left: 10px;
   }
 `;
-export const Content = styled.div`
-  padding-top: 100px;
+export const StyleTimer = styled.div`
+  width: 45px;
+  height: 50px;
+  border-radius: 4px;
+  padding: 5px;
+  text-align: center;
+  color: white;
+  background: #606060;
   display: flex;
-  justify-content: space-around;
-
-  @media (max-width: 551px) {
-    flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 15px 5px 0 3px;
+  p:first-of-type {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #ffffff;
+  }
+  @media (max-width: 447px) {
+    background-color: white;
+    color: #8b96a5;
+    font-weight: 600;
+    font-size: 16px;
   }
 `;
 
+export const Offers = styled.div`
+  background-color: white;
+  display: flex;
+  @media (max-width: 1150px) {
+    overflow-x: scroll;
+  }
+`;
 export const StyleOffer = styled.div`
   text-align: center;
   background: #ffffff;
@@ -80,26 +107,5 @@ export const StyleOffer = styled.div`
     line-height: 28px;
     background: #ffe3e3;
     border-radius: 29px;
-  }
-`;
-
-export const StyleTimer = styled.div`
-  width: 45px;
-  height: 50px;
-  border-radius: 4px;
-  padding: 5px;
-  text-align: center;
-  color: white;
-  background: #606060;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin: 15px 5px 0 5px;
-  @media (max-width: 447px) {
-    background-color: white;
-    color: #8b96a5;
-    font-weight: 600;
-    font-size: 16px;
   }
 `;

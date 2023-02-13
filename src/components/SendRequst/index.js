@@ -1,8 +1,9 @@
+//Styles
 import { ContainerSection } from "../../styles/Container";
-import Button from "../Button";
-import styled from "styled-components";
-
 import {Input,StyleSendRequests} from "./Style"
+//component
+import Button from "../Button";
+
 
 const SendRequests = () => {
   return (
@@ -26,10 +27,8 @@ const SendRequests = () => {
             />
           </div>
           <div>
-            <Input
+            <textarea
               placeholder="Type more details"
-              width={"440px"}
-              height={"73px"}
             />
           </div>
           <div>

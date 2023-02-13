@@ -46,7 +46,7 @@ export const StyleItem = styled.div`
   }
 `;
 
-export const StyleSection = styled.div`
+export const StyleSection = styled.section`
   .title {
     h3 {
       font-weight: 600;
@@ -93,9 +93,5 @@ export const StyleItems = styled.div`
   @media (max-width: 991px) {
     display: flex;
     overflow-x: scroll;
-  }
-`;
-export const S = styled.div`
-  @media (max-width: 450px) {
   }
 `;

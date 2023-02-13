@@ -1,8 +1,7 @@
 import styled from "styled-components";
 import background from "../../images/sendRequests.png";
 
-export const StyleSendRequests = styled.div`
-  
+export const StyleSendRequests = styled.section`
   margin-top: 20px;
   padding: 40px;
   max-width: 1290px;
@@ -66,8 +65,7 @@ export const StyleSendRequests = styled.div`
     h3 {
       font-weight: 600;
       font-size: 20px;
-    margin-bottom: 10px;
-
+      margin-bottom: 10px;
     }
 
     select {
@@ -84,6 +82,14 @@ export const StyleSendRequests = styled.div`
     button {
       border-radius: 6px;
     }
+    textarea {
+      padding: 5px;
+      border: 1px solid #e3e8ee;
+      border-radius: 6px;
+      width: 440px;
+      height: 73px;
+      margin: 5px 0 13px 0;
+    }
     @media (max-width: 991px) {
       display: none;
     }
@@ -96,6 +102,11 @@ export const StyleSendRequests = styled.div`
 `;
 
 export const Input = styled.input`
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  padding: 5px;
+  color: #8b96a5;
   margin-bottom: 20px;
   border: 1px solid #e3e8ee;
   border-radius: 6px;

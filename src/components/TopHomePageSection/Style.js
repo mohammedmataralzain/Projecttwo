@@ -5,7 +5,7 @@ export const StyleTopSection = styled.div`
   display: flex;
   justify-content: space-between;
   background-color: #ffffff;
-  padding: 10px;
+  padding: 20px 10px;
   margin: 10px 0;
   ul {
     li {
@@ -17,7 +17,7 @@ export const StyleTopSection = styled.div`
       height: 40px;
       border-radius: 6px;
       line-height: 20px;
-      padding-top: 10px;
+      padding: 10px 0 0 20px;
       &:hover {
       background-color: #E5F1FF;
 
@@ -79,6 +79,7 @@ export const StyleTopSection = styled.div`
     .detalis{
       background-color: #E3F0FF;
       padding: 10px;
+      border-radius: 6px;
     }
     .avatar {
       display: flex;

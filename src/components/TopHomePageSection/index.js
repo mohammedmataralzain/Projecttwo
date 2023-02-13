@@ -24,8 +24,8 @@ function index() {
     <ContainerSection>
       <StyleTopSection>
         <ul>
-          {Categories.map((Categorie) => (
-            <li>{Categorie}</li>
+          {Categories.map((Categorie,index) => (
+            <li key={index}>{Categorie}</li>
           ))}
         </ul>
         <div className="bannerBoard">

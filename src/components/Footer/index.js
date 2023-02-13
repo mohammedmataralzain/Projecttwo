@@ -1,10 +1,18 @@
-import { Container} from "../../styles/Container";
+//styles
+import { Container } from "../../styles/Container";
+
+//component
 import Logo from "../Logo";
+
+//images
 import logo from "../../images/logo1.png";
 import logo2 from "../../images/Logo.png";
 import logo3 from "../../images/Subtract.png";
+
+//react-router
 import { NavLink } from "react-router-dom";
 
+//icons
 import {
   BsFacebook,
   BsTwitter,
@@ -12,8 +20,8 @@ import {
   BsInstagram,
   BsLinkedin,
 } from "react-icons/bs";
-import { Footr, Icon, Icons, Row } from "./Style";
 
+import { FooterStyle, Row } from "./Style";
 
 const socialIcons = [
   <BsFacebook />,
@@ -54,10 +62,10 @@ const links = [
 const Footer = () => {
   return (
     <>
-        <Footr>
-      <Container>
-          <div className="colums">
-            <div className="firstColum">
+      <FooterStyle>
+        <Container>
+          <div className="columns">
+            <div>
               <NavLink to="/">
                 <Logo src={logo} logo="false" />
               </NavLink>
@@ -65,28 +73,28 @@ const Footer = () => {
                 Best information about the company gies here but now lorem ipsum
                 is
               </p>
-              <Icons>
+              <div className="icons">
                 {socialIcons.map((icon, index) => {
                   return (
-                    <Icon className="icon" key={index}>
+                    <span className="icon" key={index}>
                       {icon}
-                    </Icon>
+                    </span>
                   );
                 })}
-              </Icons>
+              </div>
             </div>
-            {links.map(({ title, links, li }) => {
+            {links.map(({ title, links, li }, id) => {
               return (
-                <div className="links" key={title}>
+                <div className="links" key={id}>
                   <h3>{title}</h3>
                   <ul>
-                    {links.map((link) =>
+                    {links.map((link, id) =>
                       li === true ? (
-                        <li key={link}>
-                          <a href="">{link}</a>
+                        <li key={id}>
+                          <a href="/">{link}</a>
                         </li>
                       ) : (
-                        <Logo src={link} logo="true" />
+                        <Logo src={link} logo="true" key={id} />
                       )
                     )}
                   </ul>
@@ -94,11 +102,11 @@ const Footer = () => {
               );
             })}
           </div>
-      </Container>
-        </Footr>
+        </Container>
+      </FooterStyle>
       <Row>
-        <Container className="ContainerSection">
-          <p>© {new Date().getFullYear()}  Ecommerce.</p>
+        <Container className="bottomFooter">
+          <p>© {new Date().getFullYear()} E-commerce</p>
           <select>
             <option>English</option>
           </select>

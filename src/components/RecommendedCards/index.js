@@ -1,10 +1,12 @@
-import React from "react";
-
-import RecommendedCard from "./RecommendedCard";
+//Styles
 import { ContainerSection } from "../../styles/Container";
-import H3 from "../HeaderSection";
 import {Cards} from "./Style"
 
+//Component
+import RecommendedCard from "./RecommendedCard";
+import H3 from "../HeaderSection";
+
+//images
 import cloth1 from "../../images/cloth1.png";
 import cloth2 from "../../images/cloth2.png";
 import cloth3 from "../../images/cloth3.png";

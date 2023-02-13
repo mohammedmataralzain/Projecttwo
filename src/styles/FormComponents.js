@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Layout = styled.div`
   width: 387px;
-  margin: 10px auto;
+  margin: 80px auto;
   background-color: #f4f4f4;
   border-radius: 5px;
   @media (max-width: 447px) {
@@ -10,7 +10,8 @@ export const Layout = styled.div`
       }
 `;
 export const StyledForm = styled.form`
-background: #FFFFFF;  padding: 30px;
+background: #FFFFFF;  
+padding: 30px;
   border-radius: 5px;
 
     h3 {

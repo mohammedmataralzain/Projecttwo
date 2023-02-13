@@ -71,14 +71,18 @@ const ProductDetalis = () => {
             <Content active={active === 1}>
               <div>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   Ut enim ad minim veniam, quis nostrud exercitation ullamco
                   laboris nisi ut aliquip ex ea commodo consequat. Duis aute
                   irure dolor in reprehenderit in voluptate velit esse cillum
                   dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet,
                   consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                  ut labore et dolore magna aliqua. pariatur.
+                  ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                  Quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+                  ea commodo consequat. Duis aute irure dolor in reprehenderit
+                  in voluptate velit esse cillum dolore eu fugiat nulla
+                  pariatur.
                 </p>
                 <TabelDetalis
                   model="#1564544"
@@ -98,14 +102,18 @@ const ProductDetalis = () => {
             <Content active={active === 2}>
               <div>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nosts aute irure dolor in
-                  reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                  nulla pariatur. Ut enim ad minim veniam, Quis nostrud
-                  exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                  consequat. Duis aute irure dolor in reprehenderit in voluptate
-                  velit esse cillum dolore eu fugiat nulla pariatur.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                  irure dolor in reprehenderit in voluptate velit esse cillum
+                  dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet,
+                  consectetur adipisicing elit, sed do eiusmod tempor incididunt
+                  ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                  Quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+                  ea commodo consequat. Duis aute irure dolor in reprehenderit
+                  in voluptate velit esse cillum dolore eu fugiat nulla
+                  pariatur.
                 </p>
                 <TabelDetalis
                   model="#1487487"
@@ -125,12 +133,18 @@ const ProductDetalis = () => {
             <Content active={active === 3}>
               <div>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   Ut enim ad minim veniam, quis nostrud exercitation ullamco
                   laboris nisi ut aliquip ex ea commodo consequat. Duis aute
                   irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla
+                  dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet,
+                  consectetur adipisicing elit, sed do eiusmod tempor incididunt
+                  ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                  Quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+                  ea commodo consequat. Duis aute irure dolor in reprehenderit
+                  in voluptate velit esse cillum dolore eu fugiat nulla
+                  pariatur.
                 </p>
                 <TabelDetalis
                   model="#7987898"
@@ -150,14 +164,13 @@ const ProductDetalis = () => {
           </>
         </Details>
       
-      <div>
+      <div className="myLike">
         <h2>You may like</h2>
         <ProductLike src={cloth3} title="Apple Watch Series Space Gray" price="$7.00 - $99.50"/>
         <ProductLike src={cloth2} title="Apple Watch Series Space Gray" price="$7.00 - $99.50"/>
         <ProductLike src={cloth3} title="Apple Watch Series Space Gray" price="$7.00 - $99.50"/>
         <ProductLike src={cloth2} title="Apple Watch Series Space Gray" price="$7.00 - $99.50"/>
         <ProductLike src={cloth3} title="Apple Watch Series Space Gray" price="$7.00 - $99.50"/>
-        <ProductLike src={cloth2} title="Apple Watch Series Space Gray" price="$7.00 - $99.50"/>
       </div>
     </Wraper>
   );
