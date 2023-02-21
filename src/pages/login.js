@@ -24,7 +24,6 @@ const Login = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // validate password and set passwordInvalid state accordingly
     if (password.length < 8) {
       setPasswordInvalid(true);
     } else {

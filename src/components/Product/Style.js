@@ -67,6 +67,23 @@ export const StyleProduct = styled.div`
       color: white;
     }
   }
+  .addToCart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    background: #0D6EFD;
+    width: 60px;
+    height: 40px;
+    border-radius: 6px;
+    border: 1px solid #0d6efd;
+    color: black;
+    .icon {
+      width: 20px;
+        height: 20px;
+        color: #8b96a5;
+    }
+  }
   .gridItem {
     height: 400px;
   }
@@ -101,9 +118,25 @@ export const StyleProduct = styled.div`
       }
     }
     .details {
-      font-weight: 500;
-      font-size: 16px;
-      color: #0d6efd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      p{
+        font-weight: 500;
+        font-size: 16px;
+        color: #0d6efd;
+      }
     }
   }
+`;
+
+
+
+
+export const StyledButton = styled.button`
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  padding: 10px 20px;
+  cursor: ${({disabled}) => disabled ? 'not-allowed' : 'pointer'};
+  opacity: ${({disabled}) => disabled ? 0.5 : 1};
 `;

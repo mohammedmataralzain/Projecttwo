@@ -13,7 +13,7 @@ const links = [
     <option>Help</option>
   </select>,
 ];
-const NavMobile = () => {
+const Nav = () => {
   return (
     <Wrraper>
       <Container>
@@ -37,4 +37,4 @@ const NavMobile = () => {
   );
 };
 
-export default NavMobile;
+export default Nav;

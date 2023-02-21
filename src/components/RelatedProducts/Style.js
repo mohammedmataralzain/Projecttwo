@@ -29,3 +29,25 @@ padding: 10px 0;
     color: #505050;
   }
 `;
+
+export const RelatedProducts = styled.div`
+  background: #ffffff;
+  padding: 15px;
+  border: 1px solid #e3e8ee;
+  border-radius: 6px;
+  margin: 15px 0;
+
+  h2 {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: -0.2px;
+    color: #1c1c1c;
+    margin: 15px 0;
+  }
+  .relatedProducts {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 20px;
+  }
+`;

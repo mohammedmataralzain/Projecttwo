@@ -15,52 +15,59 @@ import { AiOutlineHeart } from "react-icons/ai";
 
 //imges
 import logo from "../../images/logo1.png";
-import Orders from "../../images/Orders.png";
-import Profile from "../../images/Profile.png";
-import Message from "../../images/Message.png";
-import MyCart from "../../images/My cart.png";
-import { StyleHeader, Wrraper, Ul, FormStyle } from "./Style";
+
+import { StyleHeader, Wrraper, Ul } from "./Style";
 
 //React-Router
-import { NavLink } from "react-router-dom";
-import { RiLinksFill } from "react-icons/ri";
+import { Link, NavLink } from "react-router-dom";
+import { useProductContext } from "../../context/productContext";
 
-const Header = () => {
+const Header = (props) => {
   const icons = [
     { icon: <CgProfile className="icon" />, title: "Profile" },
     { icon: <MdMessage className="icon" />, title: "Message" },
     { icon: <AiOutlineHeart className="icon" />, title: "Orders" },
     { icon: <HiShoppingCart className="icon" />, title: "Mycart" },
   ];
+  const { state } = useProductContext();
+
   return (
     <Wrraper>
       <Container>
         <StyleHeader>
-          <Burger />  
+          <Burger />
           <NavLink to="/">
             <Logo src={logo} logo="false" />
           </NavLink>
-          <FormStyle>
-            <input type="text" placeholder="Search" />
-            <select name="cars" id="cars">
-              <option value="volvo">All category</option>
-              <option value="saab">Saab</option>
-              <option value="mercedes">Mercedes</option>
-              <option value="audi">Audi</option>
-            </select>
-            <Button background="#0D6EFD">Search</Button>
-          </FormStyle>
+          {props.Search}
           <Ul>
-            {icons.map((icon, index) => (
-              <li key={index}>
-                {icon.icon}
-                {icon.title}
+            <Link to="/">
+              <li>
+                <CgProfile className="icon" />
+                Profile
               </li>
-            ))}
+            </Link>
+            <li>
+              <MdMessage className="icon" />
+              Message
+            </li>
+            <Link to="/Products">
+              <li>
+                <AiOutlineHeart className="icon" />
+                Orders
+              </li>
+            </Link>
+            <Link to="/MyCart">
+              <li className="cart">
+                <span>{state.count}</span>
+                <HiShoppingCart className="icon" />
+                Mycart
+              </li>
+            </Link>
           </Ul>
         </StyleHeader>
       </Container>
-      <Nav />
+      {props.Nav}
     </Wrraper>
   );
 };

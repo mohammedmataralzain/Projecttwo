@@ -8,9 +8,12 @@ import SignUp from "./pages/SignUp";
 import SingleProduct from "./pages/SingleProduct";
 import GlobalStyle from "./GlobalStyle";
 import Products from "./pages/Products";
+import MyCart from "./pages/MyCart";
+import ProductProvider from "./context/productContext";
 
 function App() {
   return (
+    <ProductProvider>
     <BrowserRouter>
       <GlobalStyle />
       <Routes>
@@ -19,9 +22,11 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/products" element={<Products />} />
         <Route path="/singleproduct" element={<SingleProduct />} />
+        <Route path="/MyCart" element={<MyCart />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>
+    </ProductProvider>
   );
 }
 

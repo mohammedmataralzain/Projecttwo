@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Footer from "../../components/Footer";
 import Header from "../../components/Header";
+import Search from "../../components/Search";
+import Footer from "../../components/Footer";
 import Subscribe from "../../components/Subscribe";
 import Dropdown from "../../components/Dropdown";
 import { AiFillStar } from "react-icons/ai";
@@ -21,7 +22,9 @@ import Laptops from "../../images/Laptops.png";
 import Smartwatches from "../../images/Smartwatches.png";
 import phone from "../../images/phone.png";
 import { GridContainer, Icon, ListContainer, StyleProducts } from "./Style";
-
+import Nav from "../../components/Header/Nav";
+import { products } from "../../mock";
+import { useProductContext } from "../../context/productContext";
 
 const Products = () => {
   useEffect(() => {
@@ -29,11 +32,13 @@ const Products = () => {
   }, []);
 
   const [view, setView] = useState("list");
+  const cart = useProductContext();
+  console.log(cart);
 
   return (
     <div>
       <>
-        <Header />
+        <Header Search={<Search />} Nav={<Nav />} />
         <Container>
           <Series />
           <StyleProducts>
@@ -196,127 +201,23 @@ const Products = () => {
               <div>
                 {view === "list" ? (
                   <ListContainer>
-                    <Product
-                      type="listItem"
-                      src={iPhone1}
-                      title="Canon Cmera EOS 2000, Black 10x zoom"
-                      newPrice="$998.00"
-                      oldPrice="$1128.00"
-                      evaluation="7.5"
-                      body="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit "
-                    />
-                    <Product
-                      type="listItem"
-                      src={mobile}
-                      title="GoPro HERO6 4K Action Camera - Black"
-                      newPrice="$998.00"
-                      evaluation="7.5"
-                      body="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit "
-                    />
-                    <Product
-                      type="listItem"
-                      src={Smartphones}
-                      title="GoPro HERO6 4K Action Camera - Black"
-                      evaluation="7.5"
-                      body="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit "
-                    />
-                    <Product
-                      type="listItem"
-                      src={Laptops}
-                      title="Canon Cmera EOS 2000, Black 10x zoom"
-                      newPrice="$998.00"
-                      evaluation="7.5"
-                      body="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit "
-                    />
-                    <Product
-                      type="listItem"
-                      src={Smartwatches}
-                      title="Canon Cmera EOS 2000, Black 10x zoom"
-                      newPrice="$998.00"
-                      oldPrice="$1128.00"
-                      evaluation="7.5"
-                      body="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit "
-                    />
-                    <Product
-                      type="listItem"
-                      src={phone}
-                      title="Canon Cmera EOS 2000, Black 10x zoom"
-                      newPrice="$998.00"
-                      evaluation="7.5"
-                      body="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit "
-                    />
+                    {products.map((product) => (
+                      <Product
+                        type="listItem"
+                        key={product.id}
+                        {...{ product }}
+                      />
+                    ))}
                   </ListContainer>
                 ) : (
                   <GridContainer>
-                    <Product
-                      type="gridItem"
-                      src={iPhone1}
-                      newPrice="$99.50"
-                      oldPrice="$1128.00"
-                      evaluation="7.5"
-                      body="GoPro HERO6 4K Action Camera - Black"
-                    />
-                    <Product
-                      type="gridItem"
-                      src={iPhone2}
-                      newPrice="$99.50"
-                      oldPrice="$1128.00"
-                      evaluation="5.9"
-                      body="GoPro HERO6 4K Action Camera - Black"
-                    />
-                    <Product
-                      type="gridItem"
-                      src={mobile}
-                      newPrice="$99.50"
-                      evaluation="7.5"
-                      body="GoPro HERO6 4K Action Camera - Black"
-                    />
-                    <Product
-                      type="gridItem"
-                      src={Smartphones}
-                      newPrice="$99.50"
-                      oldPrice="$1128.00"
-                      evaluation="7.5"
-                      body="GoPro HERO6 4K Action Camera - Black"
-                    />
-                    <Product
-                      type="gridItem"
-                      src={GoProcameras}
-                      newPrice="$99.50"
-                      oldPrice="$1128.00"
-                      evaluation="7.5"
-                      body="GoPro HERO6 4K Action Camera - Black"
-                    />
-                    <Product
-                      type="gridItem"
-                      src={iPhone2}
-                      newPrice="$99.50"
-                      evaluation="7.5"
-                      body="GoPro HERO6 4K Action Camera - Black"
-                    />
-                    <Product
-                      type="gridItem"
-                      src={Laptops}
-                      newPrice="$99.50"
-                      oldPrice="$1128.00"
-                      evaluation="7.5"
-                      body="GoPro HERO6 4K Action Camera - Black"
-                    />
-                    <Product
-                      type="gridItem"
-                      src={Smartwatches}
-                      newPrice="$99.50"
-                      oldPrice="$1128.00"
-                      evaluation="7.5"
-                      body="GoPro HERO6 4K Action Camera - Black"
-                    />
-                    <Product
-                      type="gridItem"
-                      src={iPhone1}
-                      newPrice="$99.50"
-                      evaluation="7.5"
-                      body="GoPro HERO6 4K Action Camera - Black"
-                    />
+                    {products.map((product) => (
+                      <Product
+                        type="gridItem"
+                        key={product.id}
+                        {...{ product }}
+                      />
+                    ))}
                   </GridContainer>
                 )}
               </div>

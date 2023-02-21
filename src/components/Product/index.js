@@ -1,24 +1,29 @@
+import { useState } from "react";
 import { AiOutlineHeart, AiFillStar } from "react-icons/ai";
-import { StyleProduct } from "./Style";
+import { HiShoppingCart } from "react-icons/hi";
+import { useProductContext } from "../../context/productContext";
+import { StyledButton, StyleProduct } from "./Style";
 
+const Product = ({ product, type }) => {
+  const { addToCart } = useProductContext();
 
-
-const Product = (props) => {
-  return props.type === "listItem" ? (
+  
+  return type === "listItem" ? (
     <StyleProduct>
       <div className="listItem">
         <div>
-          <img src={props.src} />
+          <img src={product.image} />
         </div>
         <div className="description">
           <div className="title">
-            <h3>{props.title}</h3>
+            <h3>{product.title}</h3>
+
             <AiOutlineHeart className="like" />
           </div>
           <div className="price">
             <p>
-              {props.newPrice}
-              <span>{props.oldPrice}</span>
+              {product.newPrice}
+              <span>{product.oldPrice ? product.oldPrice : ""}</span>
             </p>
           </div>
           <div className="stars">
@@ -29,24 +34,32 @@ const Product = (props) => {
               <AiFillStar className="star" />
               <AiFillStar className="star" />
             </span>
-            <span className="evaluation">{props.evaluation}</span>
+            <span className="evaluation">{product.evaluation}</span>
             <span className="orders">154 orders</span>
             <span className="freeShipping">Free Shipping</span>
           </div>
-          <div className="body">{props.body}</div>
-          <p className="details">View details</p>
+          <div className="body">{product.body}</div>
+          <div className="details">
+            <p>View details</p>
+            <StyledButton onClick={() => addToCart(product)} className="addToCart" disabled={product.isSelected}>
+              Add<HiShoppingCart className="icon" />
+            </StyledButton>
+          </div>
         </div>
       </div>
     </StyleProduct>
   ) : (
     <StyleProduct>
       <div className="gridItem">
-        <img src={props.src} alt="Img not found" />
+        <img src={product.image} alt="Img not found" />
         <div className="price">
           <p>
-            {props.newPrice}
-            <span>{props.oldPrice}</span>
+            {product.newPrice}
+            <span>{product.oldPrice}</span>
           </p>
+          <button onClick={() => addToCart(product)} className="addToCart">
+            Add  <HiShoppingCart className="icon" />
+          </button>
           <AiOutlineHeart className="like" />
         </div>
         <div className="stars">
@@ -57,9 +70,9 @@ const Product = (props) => {
             <AiFillStar className="star evaluation" />
             <AiFillStar className="star" />
           </span>
-          <span className="evaluation">{props.evaluation}</span>
+          <span className="evaluation">{product.evaluation}</span>
         </div>
-        <p className="body">{props.body}</p>
+        <p className="body">{product.body}</p>
       </div>
     </StyleProduct>
   );

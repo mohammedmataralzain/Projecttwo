@@ -59,47 +59,28 @@ export const StyleNav = styled.nav`
 `;
 
 export const StyleHeader = styled.header`
-
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 20px 0;
-  .icon {
-    width: 30px;
-    height: 30px;
-    color: #8b96a5;
+  ul {
+    li {
+      .icon {
+        width: 30px;
+        height: 30px;
+        color: #8b96a5;
+      }
+    }
   }
   @media (max-width: 768px) {
     text-align: center;
   }
 `;
 
-export const FormStyle = styled.form`
-  display: flex;
-  input,
-  select {
-    background: #ffffff;
-    height: 40px;
-    border: 3px solid #0d6efd;
-    font-size: 16px;
-    color: #8b96a5;
-  }
-  input {
-    width: 421px;
-    border-radius: 8px 0 0 8px;
-    padding: 10px;
-  }
-  select {
-    width: 145px;
-  }
-  @media (max-width: 1000px) {
-    display: none;
-  }
-`;
 export const Wrraper = styled.div`
   background-color: white;
-  border-bottom: 1px solid #E0E0E0;
-  border-top: 1px solid #E0E0E0;
+  border-bottom: 1px solid #e0e0e0;
+  border-top: 1px solid #e0e0e0;
 `;
 export const Ul = styled.ul`
   list-style: none;
@@ -107,7 +88,24 @@ export const Ul = styled.ul`
   align-items: center;
   justify-content: center;
   gap: 15px;
-
+  .cart {
+    position: relative;
+    span {
+      position: absolute;
+      top: -20%;
+      right: -15%;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: #0d6efd;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 15px;
+      padding: 13px;
+      opacity: 0.8;
+    }
+  }
   img {
     width: 22px;
   }
@@ -124,7 +122,6 @@ export const Ul = styled.ul`
 `;
 
 export const UlMobile = styled.ul`
-
   display: none;
 
   li {
@@ -138,9 +135,9 @@ export const UlMobile = styled.ul`
   @media (max-width: 768px) {
     display: flex;
     flex-flow: column nowrap;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     position: fixed;
-    transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(-100%)'};
+    transform: ${({ open }) => (open ? "translateX(0)" : "translateX(-100%)")};
     top: 0;
     left: 0;
     height: 100vh;
