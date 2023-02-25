@@ -21,6 +21,8 @@ import { StyleHeader, Wrraper, Ul } from "./Style";
 //React-Router
 import { Link, NavLink } from "react-router-dom";
 import { useProductContext } from "../../context/productContext";
+import { useContext } from "react";
+import AuthContext from "../../context/AuthContext";
 
 const Header = (props) => {
   const icons = [
@@ -30,18 +32,21 @@ const Header = (props) => {
     { icon: <HiShoppingCart className="icon" />, title: "Mycart" },
   ];
   const { state } = useProductContext();
+  const [,setAuthenticated]= useContext(AuthContext);
+
 
   return (
     <Wrraper>
       <Container>
         <StyleHeader>
           <Burger />
+          
           <NavLink to="/">
             <Logo src={logo} logo="false" />
           </NavLink>
           {props.Search}
           <Ul>
-            <Link to="/">
+            <Link to="/Home">
               <li>
                 <CgProfile className="icon" />
                 Profile
@@ -51,20 +56,27 @@ const Header = (props) => {
               <MdMessage className="icon" />
               Message
             </li>
-            <Link to="/Products">
+            <Link to="/Home/products">
               <li>
                 <AiOutlineHeart className="icon" />
                 Orders
               </li>
             </Link>
-            <Link to="/MyCart">
+            <Link to="/Home/MyCart">
               <li className="cart">
                 <span>{state.count}</span>
                 <HiShoppingCart className="icon" />
                 Mycart
               </li>
             </Link>
+            <li>
+            <button onClick={()=>{
+            setAuthenticated(false);
+            localStorage.removeItem('token');
+          }}>logout</button>
+            </li>
           </Ul>
+            
         </StyleHeader>
       </Container>
       {props.Nav}

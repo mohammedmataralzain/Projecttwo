@@ -1,6 +1,8 @@
-import React, { useContext, useReducer } from "react";
-import { Navigate, NavLink } from "react-router-dom";
+import React, { useReducer } from "react";
+import { NavLink } from "react-router-dom";
+import { useSignUpContext } from "../context/signupContext";
 import axios from "axios";
+import * as yup from "yup";
 
 import {
   StyledForm,
@@ -12,18 +14,69 @@ import {
   Select,
   StyleCheckBox,
 } from "../styles/FormComponents";
+import { Schema } from "yup";
+const regularExpression = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
 
-import { Api } from "../components/Api";
-import { initialState, Reducer, schema } from "../hooks/useSignUp";
-import AuthContext from "../context/AuthContext";
+const schema = yup.object().shape({
+  name: yup.string().required("Name is Required"),
+  surname: yup.string().required("Surname is Required"),
+  email: yup.string().email("Email is invalid").required("Email is Required"),
+  phone: yup
+    .string()
+    .matches(/^[0-9]{10}$/, "Phone number is not valid")
+    .required("Phone number is required"),
+  password: yup
+    .string()
+    .min(6, "Password must be at least 6 characters")
+    .matches(regularExpression, "Password week")
+    .required("Password is required"),
+  repeatPassword: yup
+    .string()
+    .oneOf([yup.ref("password"), null], "Password Not same")
+    .required("Confirm Password is Required"),
+});
+const initialState = {
+  name: "",
+  surname: "",
+  email: "",
+  phone: "",
+  password: "",
+  repeatPassword: "",
+  errors: {},
+  isSubmitting: false, //*
+};
 
+const ACTIONS = {
+  SET_FIELD: "setField",
+  SET_ERRORS: "setErrors",
+  SET_SUBMITTING: "setSubmitting",
+};
 
+const Reducer = (state, action) => {
+  switch (action.type) {
+    case ACTIONS.SET_FIELD:
+      return {
+        ...state,
+        [action.field]: action.value,
+      };
+    case ACTIONS.SET_ERRORS:
+      return {
+        ...state,
+        errors: action.errors,
+      };
+    case ACTIONS.SET_SUBMITTING:
+      return {
+        ...state,
+        isSubmitting: action.isSubmitting,
+      };
+    default:
+      return state;
+  }
+};
 const SignUp = () => {
   const [state, dispatch] = useReducer(Reducer, initialState);
-  const [ ,setIsAuthenticated ] = useContext(AuthContext);
 
-  console.log(state);
-
+  // const { state, setField, setErrors, setSubmitting } = useSignUpContext();
   const {
     name,
     surname,
@@ -32,44 +85,41 @@ const SignUp = () => {
     password,
     repeatPassword,
     errors,
+    isSubmitting,
   } = state;
-
   const handleSubmit = async (event) => {
     console.log(state);
     event.preventDefault();
-    schema
-      .validate(
-        { name, surname, email, phone, password, repeatPassword },
-        { abortEarly: false }
-      )
-      .then(async () => {
-        const response = await axios.post(`${Api}/users/signup`, {
-          name,
-          email,
-          password,
-        });
-        console.log(response.data);
-        if (response.data) {
-          localStorage.setItem("token", response.data.token);
-          setIsAuthenticated(true);
-        }
-      })
-      .catch((error) => {
-        console.log(error.errors || error.message);
+    dispatch({ type: "setSubmitting", isSubmitting: true });
 
-        const formattedErrors = {};
-        error.inner.forEach((error) => {
-          formattedErrors[error.path] = error.message;
-          dispatch({
-            type: "setErrors",
-            errors: formattedErrors,
-          });
-        });
-      });
+    try {
+      // const response = await axios.post("/api/signup", {
+      //   name,
+      //   email,
+      //   password,
+      // });
+      // console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+    // setSubmitting({isSubmitting: false });
   };
 
- 
-
+  const validate = async () => {
+    try {
+      await Schema.validate(
+        { name, surname, email, phone, password, repeatPassword },
+        { abortEarly: false }
+      );
+      return {};
+    } catch (error) {
+      const errors = {};
+      error.inner.forEach((e) => {
+        errors[e.path] = e.message;
+      });
+      return errors;
+    }
+  };
   const handleChange = (event) => {
     dispatch({
       type: "setField",
@@ -95,7 +145,6 @@ const SignUp = () => {
                 onChange={(event) => handleChange(event)}
                 value={name}
               />
-              {errors.name && <div className="error">{errors.name}</div>}
             </div>
             <div>
               <StyledLabel htmlFor="Surname">Surname</StyledLabel>
@@ -108,7 +157,6 @@ const SignUp = () => {
                 name="surname"
                 value={surname}
               />
-              {errors.surname && <div className="error">{errors.surname}</div>}
             </div>
           </Row>
 
@@ -121,7 +169,6 @@ const SignUp = () => {
             name="email"
             value={email}
           />
-          {errors.email && <div className="error">{errors.email}</div>}
 
           <StyledLabel htmlFor="phone">Phone</StyledLabel>
           <Row>
@@ -142,7 +189,6 @@ const SignUp = () => {
               value={phone}
             />
           </Row>
-            {errors.phone && <div className="error">{errors.phone}</div>}
           <StyledLabel htmlFor="password">Password</StyledLabel>
           <StyledInput
             type="Password"
@@ -152,8 +198,6 @@ const SignUp = () => {
             name="password"
             value={password}
           />
-          {errors.password && <div className="error">{errors.password}</div>}
-
           <StyledLabel htmlFor="RepeatPassword">Repeat password</StyledLabel>
           <StyledInput
             type="password"
@@ -163,9 +207,6 @@ const SignUp = () => {
             name="repeatPassword"
             value={repeatPassword}
           />
-          {errors.repeatPassword && (
-            <div className="error">{errors.repeatPassword}</div>
-          )}
 
           <StyledButton type="submit" background="0D6EFD">
             Register now
@@ -184,7 +225,6 @@ const SignUp = () => {
           </div>
         </StyledForm>
       </Layout>
-      {state.SignUp ? <Navigate to={"/"} /> : ""}
     </div>
   );
 };

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { AiOutlineHeart, AiFillStar } from "react-icons/ai";
 import { HiShoppingCart } from "react-icons/hi";
 import { useProductContext } from "../../context/productContext";
@@ -7,7 +6,6 @@ import { StyledButton, StyleProduct } from "./Style";
 const Product = ({ product, type }) => {
   const { addToCart } = useProductContext();
 
-  
   return type === "listItem" ? (
     <StyleProduct>
       <div className="listItem">
@@ -41,8 +39,13 @@ const Product = ({ product, type }) => {
           <div className="body">{product.body}</div>
           <div className="details">
             <p>View details</p>
-            <StyledButton onClick={() => addToCart(product)} className="addToCart" disabled={product.isSelected}>
-              Add<HiShoppingCart className="icon" />
+            <StyledButton
+              onClick={() => addToCart(product)}
+              className="addToCart"
+              disabled={product.isSelected}
+            >
+              Add
+              <HiShoppingCart className="icon" />
             </StyledButton>
           </div>
         </div>
@@ -58,7 +61,7 @@ const Product = ({ product, type }) => {
             <span>{product.oldPrice}</span>
           </p>
           <button onClick={() => addToCart(product)} className="addToCart">
-            Add  <HiShoppingCart className="icon" />
+            Add <HiShoppingCart className="icon" />
           </button>
           <AiOutlineHeart className="like" />
         </div>

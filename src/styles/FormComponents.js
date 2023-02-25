@@ -32,6 +32,10 @@ padding: 30px;
         color: #0D6EFD;
         margin-left: 4px;
     }
+    .error {
+      color: red;
+      font-size: 15px;
+    }
 `;
 
 export const StyledLabel = styled.label`
@@ -134,7 +138,8 @@ export const StyledButton = styled.button`
 export const Row = styled.div`
   display: flex;
   justify-content: space-between;
-  input[type="number"] {
+  
+  input[type="phone"] {
     border-radius: 0 6px 6px 0;
   }
 `;

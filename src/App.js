@@ -1,31 +1,22 @@
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 
-import Home from "./pages/Home";
-import ErrorPage from "./components/Error";
-import Login from "./pages/login";
-import SignUp from "./pages/SignUp";
-import SingleProduct from "./pages/SingleProduct";
 import GlobalStyle from "./GlobalStyle";
-import Products from "./pages/Products";
-import MyCart from "./pages/MyCart";
 import ProductProvider from "./context/productContext";
+import MyRoutes from "./router/index";
+import AuthContext from "./context/AuthContext";
 
 function App() {
+  const [authenticated, setAuthenticated] = useState(false);
+  useEffect(() => {
+    localStorage.getItem("token") && setAuthenticated(true);
+  }, []);
   return (
     <ProductProvider>
-    <BrowserRouter>
       <GlobalStyle />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/singleproduct" element={<SingleProduct />} />
-        <Route path="/MyCart" element={<MyCart />} />
-        <Route path="*" element={<ErrorPage />} />
-      </Routes>
-    </BrowserRouter>
+     
+    <AuthContext.Provider value={[authenticated, setAuthenticated]}>
+      <MyRoutes />
+    </AuthContext.Provider>
     </ProductProvider>
   );
 }

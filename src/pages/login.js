@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useReducer } from "react";
 import { NavLink } from "react-router-dom";
 
 import {
@@ -13,69 +13,87 @@ import {
 
 import { FcGoogle } from "react-icons/fc";
 import { AiFillFacebook } from "react-icons/ai";
+import { initialState, Reducer, schema } from "../hooks/login";
+import axios from "axios";
+import { Api } from "../components/Api";
+import AuthContext from "../context/AuthContext";
 
 const Login = (props) => {
-  const [username, setUsername] = React.useState("");
-  const [password, setPassword] = React.useState("");
-  const [passwordInvalid, setPasswordInvalid] = React.useState(false);
-  const [enabled, setEnabled] = React.useState(false);
+  const [state, dispatch] = useReducer(Reducer, initialState);
+  const [,setIsAuthenticated ]= useContext(AuthContext);
+  const { email, password, errors } = state;
 
-  const socialIcons = [<FcGoogle />, <AiFillFacebook />];
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (password.length < 8) {
-      setPasswordInvalid(true);
-    } else {
-      setPasswordInvalid(false);
-    }
+  const handleSubmit = async (event) => {
+    console.log(state);
+    event.preventDefault();
+    schema
+      .validate({ email, password }, { abortEarly: false })
+      .then(async () => {
+        const response = await axios.post(`${Api}/users/login`, {
+          email,
+          password,
+        });
+        console.log(response.data);
+        if (response.data) {
+          localStorage.setItem("token", response.data.token);
+          setIsAuthenticated(true);
+        }
+      })
+      .catch((error) => {
+        const formattedErrors = {};
+        error.inner.forEach((error) => {
+          formattedErrors[error.path] = error.message;
+          dispatch({
+            type: "setErrors",
+            errors: formattedErrors,
+          });
+        });
+      });
   };
 
-  const usernameEntered = (e) => {
-    setUsername(e.target.value);
-  };
-
-  const passwordEntered = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const buttonEnabled = (username, password) => {
-    if (username.length > 0 && password.length > 0) {
-      setEnabled(true);
-    } else {
-      setEnabled(false);
-    }
+  const handleChange = (event) => {
+    dispatch({
+      type: "setField",
+      field: event.target.name,
+      value: event.target.value,
+    });
   };
 
   return (
     <Layout>
-      <StyledForm onSubmit={handleSubmit}>
+      <StyledForm onSubmit={(e) => handleSubmit(e)}>
         <h3>Sign in</h3>
         <StyledLabel htmlFor="Username">Username:</StyledLabel>
         <StyledInput
           type="text"
-          value={username}
-          onChange={(e) => usernameEntered(e)}
+          value={email}
+          name="email"
+          onChange={(event) => handleChange(event)}
           placeholder="Email or phone"
-          id="Username"
+          id="email"
         />
-        <StyledLabel invalid={passwordInvalid} htmlFor="Password">
+        {errors.email && <div className="error">{errors.email}</div>}
+
+        <StyledLabel htmlFor="Password">
           Password<span>Forgot Password</span>
         </StyledLabel>
         <StyledInput
           type="password"
           value={password}
-          onChange={(e) => passwordEntered(e)}
+          onChange={(event) => handleChange(event)}
           placeholder="Type here"
-          id="Password"
+          id="password"
+          name="password"
         />
+        {errors.password && <div className="error">{errors.password}</div>}
+
         <StyleCheckBox>
           <input type="checkbox" id="checkbox" />
           <StyledLabel htmlFor="checkbox">Remember me</StyledLabel>
         </StyleCheckBox>
         <StyledButton
           type="submit"
-          disabled={!username || !password}
+          disabled={!email || !password}
           background="0D6EFD"
         >
           Log In

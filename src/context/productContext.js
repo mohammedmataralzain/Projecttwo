@@ -1,6 +1,5 @@
 import { createContext, useContext } from "react";
 import useCart from "../hooks/useCart";
-import { products } from "../mock";
 
 const productContext = createContext(null);
 
