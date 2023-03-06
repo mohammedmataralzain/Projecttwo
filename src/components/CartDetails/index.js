@@ -1,8 +1,6 @@
-import React from "react";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { useProductContext } from "../../context/productContext";
-import Button from "../Button";
 import ItemCart from "../ItemCart";
 import { StyleCartDetails } from "./Style";
 

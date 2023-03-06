@@ -1,4 +1,3 @@
-import styled from "styled-components";
 
 import Offer from "./Offer";
 import Timer from "./Timer";

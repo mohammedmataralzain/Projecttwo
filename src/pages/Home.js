@@ -1,7 +1,7 @@
 import Header from "../components/Header";
 import Search from "../components/Search"
 import TopHomePageSection from "../components/TopHomePageSection";
-import Dealsandoffers from "../components/DealsAndOffers/Dealsandoffers";
+import Dealsandoffers from "../components/DealsAndOffers";
 import ConsumerElectronics from "../components/HomeAndConsumer/ConsumerElectronics";
 import RecommendedCards from "../components/RecommendedCards";
 import OurExtraServices from "../components/OurExtraServices";
@@ -10,9 +10,8 @@ import Suppliers from "../components/Suppliers";
 import Subscribe from "../components/Subscribe";
 import Footer from "../components/Footer";
 import HomeAndOutdoor from "../components/HomeAndConsumer/HomeAndOutdoor";
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import Nav from "../components/Header/Nav";
-import { useProductContext } from "../context/productContext";
 
 const Home = () => {
   

@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import { Content, Tab, Tabs } from "./Style";
 import TabelDetalis from "./TabelDetalis";
-import { IoCheckmark } from "react-icons/io";
-import Vector from "../../images/Vector.png";
 import cloth2 from "../../images/cloth2.png";
 import cloth3 from "../../images/cloth3.png";
 import { ProductLike } from "./ProductLike";

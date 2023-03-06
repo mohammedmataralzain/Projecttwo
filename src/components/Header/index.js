@@ -1,8 +1,6 @@
 //Components
 import Logo from "../Logo";
 import Burger from "./Burger";
-import Button from "../Button";
-import Nav from "./Nav";
 
 //Container
 import { Container } from "../../styles/Container";
@@ -25,12 +23,7 @@ import { useContext } from "react";
 import AuthContext from "../../context/AuthContext";
 
 const Header = (props) => {
-  const icons = [
-    { icon: <CgProfile className="icon" />, title: "Profile" },
-    { icon: <MdMessage className="icon" />, title: "Message" },
-    { icon: <AiOutlineHeart className="icon" />, title: "Orders" },
-    { icon: <HiShoppingCart className="icon" />, title: "Mycart" },
-  ];
+ 
   const { state } = useProductContext();
   const [,setAuthenticated]= useContext(AuthContext);
 
