@@ -5,7 +5,6 @@ import Button from "../Button";
 import Caption from "./Caption";
 import { NavLink } from "react-router-dom";
 
-import Avatar from "../../images/Avatar.jpg"
 
 function index() {
   const Categories = [
@@ -38,7 +37,6 @@ function index() {
         <div className="col3">
         <div className="detalis">
             <div className="avatar">
-                <img src={Avatar}/>
                 <p>Hi, user let’s get stated</p>
             </div>
             <div>

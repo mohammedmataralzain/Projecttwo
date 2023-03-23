@@ -8,7 +8,6 @@ const Item = (props) => {
             <h4>{props.title}</h4>
             <p>{props.price}</p>
         </div>
-        <img src={props.src}/>
     </StyleItem>
   )
 }

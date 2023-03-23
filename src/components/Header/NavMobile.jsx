@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 
 import Home from "../../images/Home.png";
 import Categories from "../../images/Categories.png";
@@ -27,7 +26,7 @@ const RightNav = ({ open }) => {
     <UlMobile open={open}>
       {Data.map((item,index) => (
         <li key={index}>
-          <img src={item.src}/>
+          <img src={item.src} alt="imag"/>
           {item.title}
         </li>
       ))}

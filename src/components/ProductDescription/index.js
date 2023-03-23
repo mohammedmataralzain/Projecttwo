@@ -52,7 +52,6 @@ const ProductDetalis = () => {
                 </p>
                 <TabelDetalis
                   model="#8786867"
-                  style="Classic style"
                   certificate="ISO-898945656"
                   size="40mm x 450mm x 29mm"
                   memory="256GB RAM"
@@ -83,7 +82,6 @@ const ProductDetalis = () => {
                 </p>
                 <TabelDetalis
                   model="#1564544"
-                  style="Genral style"
                   certificate="ISO-111121212"
                   size="34mm x 450mm x 19mm"
                   memory="128GB RAM"
@@ -114,7 +112,6 @@ const ProductDetalis = () => {
                 </p>
                 <TabelDetalis
                   model="#1487487"
-                  style="Static style"
                   certificate="ISO-787821313"
                   size="65mm x 490mm x 79mm"
                   memory="64GB RAM"
@@ -145,7 +142,6 @@ const ProductDetalis = () => {
                 </p>
                 <TabelDetalis
                   model="#7987898"
-                  style="Fixed style"
                   certificate="ISO-898921212"
                   size="44mm x 410mm x 99mm"
                   memory="36GB RAM"

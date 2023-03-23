@@ -9,7 +9,7 @@ const ItemCart = ({ product }) => {
   return (
     <StyleItemCart>
       <div>
-        <img src={product.image} />
+        <img src={product.image} alt="imag"/>
       </div>
       <div className="content">
         <div>

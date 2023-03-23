@@ -10,7 +10,7 @@ const Product = ({ product, type }) => {
     <StyleProduct>
       <div className="listItem">
         <div>
-          <img src={product.image} />
+          <img src={product.image} alt="imag"/>
         </div>
         <div className="description">
           <div className="title">

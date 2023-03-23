@@ -35,7 +35,7 @@ const ProductDetails = () => {
     <StyleDetails>
       <div className="col1">
         <div className="bigImg">
-          <img src={sliderData.value} height="200" width="200" />
+          <img src={sliderData.value} height="200" width="200" alt="imag" />
         </div>
         <div className="imgs">
           {imgs.map((data, i) => (
@@ -45,6 +45,7 @@ const ProductDetails = () => {
               width="50"
               key={data.id}
               onClick={() => handelClick(i)}
+              alt="imag"
             />
           ))}
         </div>
@@ -121,7 +122,7 @@ const ProductDetails = () => {
           <div>
             <ul>
               <li>
-                <img src={France} />
+                <img src={France} alt="imag"/>
                 France, Berlin
               </li>
               <li>

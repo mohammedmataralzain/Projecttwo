@@ -5,7 +5,7 @@ export const ProductLike = (props) => {
   return (
     <StyleProductLike>
       <div>
-        <img src={props.src} />
+        <img src={props.src} alt="imag"/>
       </div>
       <div>
         <p>{props.title}</p>

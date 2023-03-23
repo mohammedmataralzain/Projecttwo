@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 
 import {StyleService} from "./Style"
 
@@ -9,7 +8,7 @@ function Service(props) {
       <img src={props.src} alt="Not Found" />
       <p>{props.content}</p>
       <div>
-        <img src={props.img} />
+        <img src={props.img} alt="imag" />
       </div>
     </StyleService>
   );
