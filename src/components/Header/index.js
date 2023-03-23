@@ -45,10 +45,12 @@ const Header = (props) => {
                 Profile
               </li>
             </Link>
+            <Link to="/Home/singleproduct">
             <li>
               <MdMessage className="icon" />
               Message
             </li>
+            </Link>
             <Link to="/Home/products">
               <li>
                 <AiOutlineHeart className="icon" />
