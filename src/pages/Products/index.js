@@ -6,21 +6,14 @@ import Subscribe from "../../components/Subscribe";
 import Dropdown from "../../components/Dropdown";
 import { AiFillStar } from "react-icons/ai";
 
-import { Container, ContainerSection } from "../../styles/Container";
+import { Container } from "../../styles/Container";
 import Series from "../../components/Series";
 import { BsList } from "react-icons/bs";
 import { RiLayoutGridFill } from "react-icons/ri";
-import styled from "styled-components";
 import Product from "../../components/Product";
 
-import iPhone1 from "../../images/iPhone - Apple.png";
-import iPhone2 from "../../images/iPhone - Apple2.png";
-import Smartphones from "../../images/Smartphones.png";
-import mobile from "../../images/mobile.png";
-import GoProcameras from "../../images/GoProcameras.png";
-import Laptops from "../../images/Laptops.png";
-import Smartwatches from "../../images/Smartwatches.png";
-import phone from "../../images/phone.png";
+
+
 import { GridContainer, Icon, ListContainer, StyleProducts } from "./Style";
 import Nav from "../../components/Header/Nav";
 import { products } from "../../mock";
